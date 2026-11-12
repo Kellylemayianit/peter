@@ -1,0 +1,3 @@
+/* Design tokens. Theme switches by data-theme on #app; accent is set inline. */
+.root[data-theme="dark"]{--bg:#0F1115;--panel:#161920;--panel2:#1C2029;--line:#262B36;--text:#EEF0F4;--text2:#A9AFBC;--muted:#8B92A1;--good:#3DD6A5;--bad:#FF7B88;--info:#8B9BFF;--warn:#F5A524;--accent-ink:#1B1204;--accent-text:var(--accent)}
+.root[data-theme="light"]{--bg:#F4F3EF;--panel:#FFFFFF;--panel2:#F8F7F4;--line:#E4E1DA;--text:#17181C;--text2:#4E525D;--muted:#646875;--good:#0B7F5F;--bad:#C23545;--info:#4457D6;--warn:#8F5300;--accent-ink:#1B1204;--accent-text:#8F5300}

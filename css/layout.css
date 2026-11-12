@@ -1,0 +1,37 @@
+/* App shell: sidebar + main (desktop), tab bar (phone). */
+.shell{display:flex;flex-wrap:wrap;min-height:100vh}
+.sidebar{flex:0 0 248px;padding:20px 14px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;gap:24px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.page{padding:20px 32px 40px;display:flex;flex-direction:column;gap:24px}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
+.topbar .search{flex:1 1 280px;max-width:520px;display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line);color:var(--muted)}
+.topbar .search input{flex-grow:1;min-width:0;border:0;outline:0;background:transparent;color:var(--text);font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.cols{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.col-main{flex:2 1 560px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.col-side{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+
+/* chat screen */
+.chat-wrap{flex-grow:1;display:flex;flex-direction:column;min-height:100vh}
+.chat-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 32px;border-bottom:1px solid var(--line)}
+.chat-log{flex-grow:1;padding:28px 32px;display:flex;flex-direction:column;gap:24px;max-width:880px;width:100%;margin:0 auto}
+.chat-composer{padding:16px 32px 24px;max-width:880px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:10px;position:sticky;bottom:0;background:linear-gradient(transparent,var(--bg) 18%)}
+.context-rail{flex:0 1 320px;min-width:280px;padding:24px 20px;border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;gap:24px}
+
+.tabbar{display:none}
+
+/* Phone: sidebar -> bottom tab bar, tighter padding */
+@media (max-width:820px){
+  .sidebar{display:none}
+  .page{padding:20px 16px 96px;gap:18px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .topbar .search,.topbar .desktop-only{display:none}
+  .context-rail{display:none}
+  .chat-head,.chat-log,.chat-composer{padding-left:16px;padding-right:16px}
+  .chat-composer{bottom:64px}
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;padding:6px 8px calc(10px + env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--line);z-index:20}
+  .tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:48px;border-radius:10px;color:var(--muted);font-size:11px;font-weight:600;text-decoration:none}
+  .tab.active{color:var(--accent-text)}
+}
+.chat-layout{display:flex;flex-grow:1;min-width:0}
