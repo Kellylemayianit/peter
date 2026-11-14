@@ -1,0 +1,23 @@
+name = "becca"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# The Worker serves the app (../web) and the API from one address,
+# so sign-in cookies just work and there is no CORS to configure.
+[assets]
+directory = "../web"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "becca"
+database_id = "REPLACE_WITH_ID_FROM_wrangler_d1_create"
+
+[vars]
+ALLOWED_EMAILS = "you@example.com"   # comma separated: only these Google accounts can sign in
+MODEL = "claude-sonnet-5-5"
+TIMEZONE = "Africa/Nairobi"
+
+# Secrets (set with: npx wrangler secret put NAME)
+#   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, SESSION_SECRET, TOKEN_KEY, ANTHROPIC_API_KEY
